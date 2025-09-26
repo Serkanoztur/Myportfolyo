@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Myportolyo.Dal.ConText;
 
@@ -11,9 +12,11 @@ using Myportolyo.Dal.ConText;
 namespace Myportolyo.Migrations
 {
     [DbContext(typeof(Myportfolio))]
-    partial class MyportfolioModelSnapshot : ModelSnapshot
+    [Migration("20250905091922_mig2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

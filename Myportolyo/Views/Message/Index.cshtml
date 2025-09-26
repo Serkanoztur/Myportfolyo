@@ -1,0 +1,76 @@
+﻿@model List<Message>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Layout/Index.cshtml";
+}
+
+
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Mesajlar</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<h5 class="card-title mb-0 mx-auto">Mesaj Listesi</h5>
+
+					</div>
+
+
+
+
+
+					<div class="card-body">
+						<div class="card-sub mb-3" style="text-align:center;padding:10px; width:100%; box-sizing:border-box;">
+							Mesajlar ile ilgili işlemleri aşağıdaki panelden yapabilirsiniz.
+						</div>
+
+						<table class="table table-striped table-bordered mx-auto" style="table-layout: fixed; width:100%;">
+
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Gönder</th>
+									<th scope="col">Konu</th>
+									<th scope="col">Tarih</th>
+									<th scope="col">Mesajı Aç</th>
+									<th scope="col">Mesaj Durumu</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.MessageId</td>
+										<td>@item.NameSurname</td>
+										<td>@item.Subject</td>
+										<td>@item.SendDate.ToShortDateString()</td>
+										<td><a href="/Message/MessageDetails/@item.MessageId" class="btn btn-warning">Mesaj Aç</a></td>
+										@if (item.IsRead == true)
+										{
+											<td><a href="/Message/ChangeIsReadToTrue/@item.MessageId" class="btn btn-primary">Mesaj Okundu</a></td>
+										}
+										else
+										{
+											<td><a href="/Message/ChangeIsReadToFalse/@item.MessageId" class="btn btn-info">Mesaj Okunmadı</a></td>
+                                        }
+										<td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
+										
+									</tr>
+								}
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

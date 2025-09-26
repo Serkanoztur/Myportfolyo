@@ -7,12 +7,16 @@
 <html>
  @await Component.InvokeAsync("_LayoutHeadComponentPartial")
 <body>
-	<div class="wrapper">
-        @await Component.InvokeAsync("_LayoutNavbarComponentPartial")
+    <div class="wrapper">
         @await Component.InvokeAsync("_LayoutSidebarComponentPartial")
-		@RenderBody()
-	</div>
-	
+    
+
+            @await Component.InvokeAsync("_LayoutNavbarComponentPartial")
+          <div class="main-panel">
+                @RenderBody()
+     </div>
+    </div>
+  
 
 </body>
 @await Component.InvokeAsync("_LayoutScriptComponentPartial")
