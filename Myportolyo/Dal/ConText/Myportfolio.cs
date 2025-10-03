@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Elfie.Serialization;
+using Microsoft.EntityFrameworkCore;
 using Myportolyo.Dal.entites;
+using System.Drawing;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Myportolyo.Dal.ConText
 {
@@ -7,12 +10,13 @@ namespace Myportolyo.Dal.ConText
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-D33E71R\\SQLEXPRESS;initial catalog=MyPortfolioDb;integrated Security=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(@"Data Source = 104.247.167.194\MSSQLSERVER2022; Initial Catalog = anon9799_SerkanPortfolio; User ID = anon9799_SerkanPortfolio; Password = Serkan.Portfolio; Trust Server Certificate = True");
         }
         public DbSet <About> Abouts { get; set; }
         public DbSet <Contact> Contacts { get; set; }
-        public DbSet <Experience> Experiences { get; set; }
+        public DbSet <Experience> Experiences { get; set; } 
         public DbSet <feature> Features { get; set; }
+
         public DbSet <Message> Messages { get; set; }
         public DbSet <Portfolio> Portfolios { get; set; }
         public DbSet <Skill> Skills { get; set; }
